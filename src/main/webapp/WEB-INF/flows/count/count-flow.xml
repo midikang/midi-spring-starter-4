@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+        http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+	<!-- 
+		1. createCountRequest
+			countRequestCreated
+		2. createCountTask
+			countTaskCreated
+		3. countTasksComplete
+			hasNoVariance
+			True
+				countTasksCompletedWithNoVariance
+			False
+				countTasksCompletedWithUnresolvableVariance
+					3.2	createVarianceTasks
+							varianceTasksCreated
+						carianceTasksComplete
+							hasNoVariance
+							True
+								varianceTasksCompletedWithNoVariance(End State)
+							False
+								varianceTasksCompleted(End State)	
+	 -->
+	<view-state id="createCountRequest">
+	    <transition on="countRequestCreated" to="createCountTasks"/>
+        <transition on="cancel" to="endState"/>
+	</view-state>
+	
+	<view-state id="createCountTasks" popup="true">
+	    <transition on="countTaskCreated" to="countTasksComplete"/>
+        <transition on="cancel" to="endState"/>
+	</view-state>
+	
+	<view-state id="countTasksComplete">
+	    <transition on="hasNoVariance" to="countTasksCompletedWithNoVariance"/>
+        <transition on="hasVariance" to="countTasksCompletedWithUnresolvableVariance"/>
+	</view-state>
+	
+	<view-state id="countTasksCompletedWithNoVariance">
+	    <transition on="complete" to="confirm"/>
+	</view-state>
+	<view-state id="countTasksCompletedWithUnresolvableVariance">
+	    <transition on="complete" to="confirm"/>
+	</view-state>
+	
+	<view-state id="confirm">
+	    <transition on="complete" to="endState"/>
+	</view-state>
+	
+    <!-- End state -->
+    <end-state id="endState" />
+
+</flow>
