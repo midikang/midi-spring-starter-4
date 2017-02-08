@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.jdbc.datasource.init.DatabasePopulatorUtils;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 
@@ -41,4 +43,13 @@ public class DataSourceConfig {
 		databasePopulator.addScript(new ClassPathResource(env.getProperty("jdbc.dataLocation")));
 		DatabasePopulatorUtils.execute(databasePopulator, dataSource);
 	}
+	
+	/* EmbeddedDatabase
+	@Bean
+	public DataSource dataSource() {
+		return new EmbeddedDatabaseBuilder()
+				.setType(EmbeddedDatabaseType.H2)
+				.addScript("schema.sql")
+				.build();
+	}*/
 }

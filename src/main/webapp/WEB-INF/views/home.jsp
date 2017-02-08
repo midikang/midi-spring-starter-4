@@ -2,13 +2,13 @@
 <%@ page session="false" %>
 <html>
   <head>
-    <title>Spitter</title>
+    <title>Spring Starter</title>
     <link rel="stylesheet" 
           type="text/css" 
           href="<c:url value="/resources/style.css" />" >
   </head>
   <body>
-    <h1>Welcome to Spitter</h1>
+    <h1>Welcome to Spring Starter</h1>
 
     <a href="<c:url value="/spittles" />">Spittles</a> | 
     <a href="<c:url value="/spitter/register" />">Register</a>
