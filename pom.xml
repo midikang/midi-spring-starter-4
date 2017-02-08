@@ -6,7 +6,7 @@
 	<artifactId>starter</artifactId>
 	<name>Midi spring starter</name>
 	<packaging>war</packaging>
-	<version>1.0.0-BUILD-SNAPSHOT</version>
+	<version>1.0.5-BUILD-SNAPSHOT</version>
 	<properties>
 		<java-version>1.6</java-version>
 		<org.springframework-version>4.3.6.RELEASE</org.springframework-version>
