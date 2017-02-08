@@ -15,6 +15,9 @@ public class DataSourceConfig {
 	private Environment env;
 	
 	public DataSource dataSource() {
+		org.apache.tomcat.jdbc.pool.DataSource dataSource =
+				new org.apache.tomcat.jdbc.pool.DataSource();
+		
 		return null;
 	}
 }
