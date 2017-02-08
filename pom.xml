@@ -11,6 +11,7 @@
 		<java-version>1.6</java-version>
 		<org.springframework-version>4.3.6.RELEASE</org.springframework-version>
 		<org.slf4j-version>1.7.12</org.slf4j-version>
+		<hibernate.version>4.3.2.Final</hibernate.version>
 	</properties>
 	<dependencies>
 		<!-- Spring -->
@@ -35,36 +36,47 @@
 			<artifactId>spring-webflow</artifactId>
 			<version>2.4.1.RELEASE</version>
 		</dependency>
-		<!-- Add spring orm(jdbc included in orm module) 
+		<!-- Add spring orm(jdbc included in orm module) <dependency> <groupId>org.springframework</groupId> 
+			<artifactId>spring-jdbc</artifactId> <version>4.2.2.RELEASE</version> </dependency> -->
+		<!-- Add spring orm(jdbc included in orm,tx modules, so we only need to 
+			add orm module) -->
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-jdbc</artifactId>
-			<version>4.2.2.RELEASE</version>
+			<artifactId>spring-orm</artifactId>
+			<version>${org.springframework-version}</version>
 		</dependency>
-		-->
-		<!-- Add spring orm(jdbc included in orm,tx modules, so we only need to add orm module) -->
-		<dependency>
-		  <groupId>org.springframework</groupId>
-		  <artifactId>spring-orm</artifactId>
-		  <version>${org.springframework-version}</version>
-		</dependency>
-		<!-- EmbeddedDatabase with H2  -->
+		<!-- EmbeddedDatabase with H2 -->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<version>1.4.190</version>
 		</dependency>
-		
-		<!-- Database connection pool 
-		See here for more details on commons-dbcp versus tomcat-jdbc: 
-    	http://blog.ippon.fr/2013/03/13/improving-the-performance-of-the-spring-petclinic-sample-application-part-3-of-5/
-    	-->
+
+		<!-- Database connection pool See here for more details on commons-dbcp 
+			versus tomcat-jdbc: http://blog.ippon.fr/2013/03/13/improving-the-performance-of-the-spring-petclinic-sample-application-part-3-of-5/ -->
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>tomcat-jdbc</artifactId>
 			<version>8.0.23</version>
 		</dependency>
-		
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-ehcache</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+
 		<!-- AspectJ <dependency> <groupId>org.aspectj</groupId> <artifactId>aspectjrt</artifactId> 
 			<version>${org.aspectj-version}</version> </dependency> -->
 		<!-- Logging -->
@@ -143,11 +155,6 @@
 			<version>1.2</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>5.0.1.Final</version>
-		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
