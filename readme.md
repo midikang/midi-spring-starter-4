@@ -52,3 +52,5 @@ To generate eclipse project
 ```
 mvn eclipse:eclipose
 ```
+
+https://github.com/midikang/spring-mvc-study
