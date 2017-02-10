@@ -3,7 +3,7 @@
 2. [Midi Kang's spring mvc study project](https://github.com/midikang/spring-mvc-study)
 3. [Petclinic](https://github.com/midikang/midi-petclinic-home)
 4. [spring-by-example](https://github.com/midikang/spring-by-example)
-5. [spring-data-example](https://github.com/midikang/spring-data-example)
+5. [spring-data-examples](https://github.com/midikang/spring-data-examples)
 
 
 # Reference articles
