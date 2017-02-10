@@ -43,14 +43,15 @@ Servlet
 Plugin:
 jetty-maven-plugin
 
-To run with jetty
+#To run with jetty
 ```
 mvn jetty:run
 ```
 
-To generate eclipse project
+
+#Inside Eclipse
+
+File -> Import -> Maven -> Existing Maven project
 ```
 mvn eclipse:eclipose
 ```
-
-https://github.com/midikang/spring-mvc-study
